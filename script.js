@@ -7,14 +7,15 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 
 let passengerAge = parseInt(prompt('Quanti anni hai?'));
 let kmNumber = parseInt(prompt('Quanti chilometri vuoi percorrere?'));
+
+if (isNaN(kmNumber) || isNaN(passengerAge)) {
+    document.getElementById('price').innerHTML = "Dato non valido. Inserisci un numero.";
+} 
+
 const pricePerKm = 0.21;
 let ticketPrice = kmNumber * pricePerKm;
 let minorDiscount;
 let seniorDiscount;
-
-if (isNaN(kmNumber) || isNaN(passengerAge)) {
-    document.getElementById('price').innerHTML = "Dato non valido. Inserisci un numero.";  
-} 
 
 if (passengerAge < 18) {
     minorDiscount = ticketPrice * 0.2;
@@ -28,4 +29,4 @@ if (passengerAge < 18) {
     document.getElementById('price').innerHTML = `Il prezzo del tuo biglietto è ${ticketPrice} €`;
 }  
 
-console.log(minorDiscount);
+
